@@ -1,0 +1,12 @@
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+app_dice_throw:
+    path: /dice/throw
+    controller: App\Controller\DiceController::throwDice
+
+# the "app_lucky_number" route name is not important yet
+#app_lucky_number:
+    #path: /lucky/number
+    #controller: App\Controller\LuckyController::number

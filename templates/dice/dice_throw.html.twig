@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Result of your dice throw</h1>
+
+    <p>
+        {% for result in data['roll'] %} {{result}} {% endfor %} = {{data['sum']}}
+    </p>
+
+    <p>
+        {% for die in data['graphicDice'] %} 
+            <i class="dice-sprite {{die}}"></i>
+        {% endfor %}
+    </p>
+
+    <h2>Your last lucky number was {{lastNumber}}</h2>
+{% endblock %}
+
