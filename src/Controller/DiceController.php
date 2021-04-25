@@ -9,8 +9,6 @@ use App\Dice\Dice;
 use App\Dice\GraphicalDice;
 use App\Dice\DiceHand;
 use App\Dice\DiceThrower;
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
-
 
 class DiceController extends AbstractController
 {
@@ -25,7 +23,7 @@ class DiceController extends AbstractController
         $data = $diceThrower->roll();
 
         return $this->render(
-            'dice/dice_throw.html.twig', ['data' => $data, 'lastNumber' => $lastNumber
+            'dice/dice_throw.html.twig', ['data' => $data,
             ]);
     }
 }
