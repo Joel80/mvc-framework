@@ -1,0 +1,18 @@
+{% block body %}
+<h2>Game over!</h2>
+
+<h3>Scoreboard</h3>
+{% for i in 0..5 %}
+    <p>{{ data['scoreboxNames'][i] }}  =  {{data['scoreboxScores'][i] }}</p>
+{% endfor %}
+
+<h3>Bonus: {{data['bonus']}}
+<h3>Total score: {{data['totalScore']}}</h3>
+
+<hr>
+<form method ="post" action="{{ path('app_yatzy_new_game')}}">
+    <br>
+    <input type = "submit" id="submit" name="doit" value = "New game">
+</form>
+
+{% endblock %}

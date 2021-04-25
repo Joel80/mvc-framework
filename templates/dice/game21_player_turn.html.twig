@@ -1,0 +1,33 @@
+{% block body %}
+    {% if (data['twentyOne']) %} 
+        <h2>{{data['twentyOne']}}</h2>
+    {% endif %}
+
+    {% if (data['playerRoll']) %}
+        <p>{{data['playerRoll']}} = {{data['sumPlayerRoll']}}</p>
+    {% endif %}
+
+    {% if data['playerRollGraphicRep'] %}
+    <p>
+        {% for value in data['playerRollGraphicRep'] %}
+            <i class="dice-sprite {{value}}"></i>
+        {% endfor %}
+    </p>
+    {% endif %}
+
+    {% if (data['playerRollHistory']) %}
+        <p>{{data['playerRollHistory']}} = {{data['playerTotal']}}</p>
+    {% endif %}
+
+    {% if data['playerRollGraphicHistory'] %}
+        <p>
+            {% for value in data['playerRollGraphicHistory'] %}
+                <i class="dice-sprite {{value}}"></i>
+            {% endfor %}
+        </p>
+    {% endif %}
+
+    {{ form(formPlayerRoll) }}
+    {{ form(formPlayerStop) }}
+
+{% endblock %}

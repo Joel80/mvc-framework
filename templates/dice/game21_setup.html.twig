@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>{{data['header']}}</h1>
+
+    <p>{{data['message']}}</p>
+
+    {{form_start(form)}}
+        <label>One die</label>
+        {{form_widget(form.nrOfDice.children[0])}}
+        <label>Two dice</label>
+        {{form_widget(form.nrOfDice.children[1], { 'attr': {'checked': 'checked'}})}}<br>
+        <label>Text dice</label>
+        {{form_widget(form.diceType.children[0], { 'attr': {'onclick':'enableSides()'}})}}
+        <label>Graphical dice</label>
+        {{form_widget(form.diceType.children[1], { 'attr': {'onclick':'disableSides()', 'checked': 'checked'}})}}<br>
+        <label>Sides</label></br>
+        {{form_widget(form.sides, { 'attr': {'disabled': 'disabled', 'min': 1, 'max': '2000'}})}}<br>
+        <label>Bet</label></br>
+        {{form_widget(form.bet, { 'attr': {'min': 0, 'max': data['maxBet']}})}}
+    {{form_end(form)}}
+{% endblock %}

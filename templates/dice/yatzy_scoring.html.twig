@@ -1,0 +1,21 @@
+{% block body %}
+<h2>Time to score!</h2>
+{% if data['playerRoll'] %}
+    <p>
+        {% for value in data['playerRoll']  %}
+            <i class="dice-sprite {{value}}"></i>
+        {% endfor %}
+    </p>
+{% endif %}
+<h2>Scoreboard</h2>
+{% for i in 0..5 %}
+    <form method ="post" action="{{ path('app_yatzy_lock_score')}}">
+        <p>{{ data['scoreboxNames'][i] }}  =  {{data['scoreboxScores'][i] }}</p>
+    {% if data['lockedScores'][i] == false %}
+        <input type="hidden" name="lockScore" value= {{i}}>
+        <input type = "submit" id="submit" name="doit" value = "Lock score">
+    {% endif %}
+    </form>
+{% endfor %}
+
+{% endblock %}

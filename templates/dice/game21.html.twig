@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>{{data['header']}}</h1>
+    <p>{{data['message']}}</p>
+
+    {% if data['gameState'] == "playerTurn" %}
+        {% include 'dice/game21_player_turn.html.twig' %}
+    {% elseif data['gameState'] == "gameOver" %}
+        {% include 'dice/game21_game_over.html.twig' %}
+    {% endif %}
+
+{% endblock %}

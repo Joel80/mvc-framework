@@ -1,0 +1,45 @@
+{% block body %}
+
+    <h2>{{data['result']}}</h2>
+
+    <p>Player total:</p>
+    {% if (data['playerRollHistory']) %}
+    <p>{{data['playerRollHistory']}} = {{data['playerTotal']}}</p>
+    {% endif %}
+
+    {% if (data['playerRollGraphicHistory']) %}
+        <p>
+        {% for value in data['playerRollGraphicHistory'] %}
+            <i class="dice-sprite {{value}}"></i>
+        {% endfor %}
+        </p>
+    {% endif %}
+
+    {% if (data['computerRollHistory']) %}
+    <p>{{data['computerRollHistory']}} = {{data['computerTotal']}}</p>
+    {% endif %}
+
+    {% if data['computerRollGraphicHistory'] %}
+        <p>
+        {% for value in data['computerRollGraphicHistory'] %}
+            <i class="dice-sprite {{value}}"></i>
+        {% endfor %}
+        </p>
+    {% endif %}
+
+    <p>Computer has won: {{data['computerWins']}} times<p>
+    <p>Player has won: {{data['playerWins']}} times<p>
+
+    <p>Player bitcoin = {{data['playerBitCoin']}}
+
+    <p>Computer bitcoin = {{data['computerBitCoin']}}
+
+    {% if (data['broke']) %}
+        <p>{{data['broke']}}</p>
+    {% endif %}
+
+    {{ form(formPlayAgain) }}
+    {{ form(formResetScore) }}
+    {{ form(formResetBitCoins) }}
+
+{% endblock %}

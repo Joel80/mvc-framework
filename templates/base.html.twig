@@ -12,6 +12,7 @@
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
+            <script type="text/javascript" src="{{ asset('js/main.js')}}"></script>
         {% endblock %}
     </head>
     <body>
@@ -20,6 +21,8 @@
                 <a href="{{ path('index') }}">Home</a>
                 <a href="{{ path('app_lucky_number') }}">Lucky number</a>
                 <a href="{{ path('app_dice_throw') }}">Throw some dice</a>
+                <a href="{{ path('app_game21_play') }}">Game21</a>
+                <a href="{{ path('app_yatzy_play') }}">Yatzy</a>
             </nav>
         </header>
 

@@ -1,0 +1,39 @@
+{% block body %}
+
+{% if (data['gameState'] == "playerTurn") %}
+    <p>Click roll to roll the dice. If you want to save a die or several dice, check the box beneath it and click Lock dice. If you lock all dice you will go to scoring.
+        Otherwise you will go to scoring after three rounds.
+    </p>
+    <p>Rounds: {{data['rounds']}} / 3</p>
+    <form method ="post" action="{{ path('app_yatzy_player_roll')}}">
+    <input type = "submit" id="submit" name="doit" value = "Roll">
+    </form>
+
+    {% if (data['playerRoll']) %}
+        <p>
+        {% for value in data['playerRoll'] %}
+            <i class="dice-sprite {{value}}"></i>
+        {% endfor %}
+        </p>
+    {% endif %}
+
+    {% if (data['rounds'] > 0) %}
+        <form class="lock-dice" method ="post" action="{{ path('app_yatzy_lock_dice')}}">
+            {% for i in 0..4 %}
+                <input type="checkbox" name="lockedDice[]" value= {{i}} {{data['lockedDice'][i] ? "checked" : "" }}>
+            {% endfor %}
+        <br>
+        <input type = "submit" id="submit" name="doit" value = "Lock dice">
+        </form>
+        
+    {% endif %}
+    
+    
+    <h3>Scoreboard</h3>
+    {% for i in 0..5 %}
+        <p>{{ data['scoreboxNames'][i] }}  =  {{data['scoreboxScores'][i] }}</p>
+    {% endfor %}
+  
+{% endif %}
+
+{% endblock %}
