@@ -27,7 +27,13 @@
         </p>
     {% endif %}
 
-    {{ form(formPlayerRoll) }}
-    {{ form(formPlayerStop) }}
+
+<form method ="post" action="{{ path('app_game21_player_roll')}}">
+    <input type = "submit" id="submit" name="doit" value = "Roll">
+    </form>
+    
+<form method ="post" action="{{ path('app_game21_computer_roll')}}">
+<input type = "submit" id="submit" name="doit" value = "Stop">
+</form>
 
 {% endblock %}

@@ -7,6 +7,8 @@
         {% include 'dice/game21_player_turn.html.twig' %}
     {% elseif data['gameState'] == "gameOver" %}
         {% include 'dice/game21_game_over.html.twig' %}
+    {% elseif data['gameState'] == "setup" %}
+        {% include 'dice/game21_setup.html.twig' %}
     {% endif %}
 
 {% endblock %}

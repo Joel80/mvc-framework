@@ -1,21 +1,21 @@
-{% extends 'base.html.twig' %}
 {% block body %}
-    <h1>{{data['header']}}</h1>
+    <form method ="post" action="{{ path('app_game21_setup')}}">
+        <p>Do you want to play with one or two dice?</p>
+        <input type="radio" id="oneDie" name="dice" value="1">
+        <label for="onedie">One die</label><br>
+        <input type="radio" id="twoDice" name="dice" value="2" checked>
+        <label for="twoDice">Two dice</label><br>
+    
+        <p>Do you want to play with text or graphical dice?</p>
+        <input type="radio" id="textDice" name="diceType" value="text" onclick = "enableSides()">
+        <label for="textDice">Text dice</label><br>
+        <input type = "number" min = "1" max = "2000" id = "sides" value = 6 name = "sides" disabled>
+        <label for="sides">Sides</label><br>
+        <input type="radio" id="graphicalDice" name="diceType" value="graphical" checked = "checked" onclick = "disableSides()">
+        <label for="graphicalDice">Graphical dice</label><br>
+        <input type = "number" min = "0" max = {{data['maxBet']}} id = "bet" name = "bet">
+        <label for="bet">Place your bet</label><br>
+        <input type = "submit" id="submit" name="doit" value = "Start game">
+    </form>
 
-    <p>{{data['message']}}</p>
-
-    {{form_start(form)}}
-        <label>One die</label>
-        {{form_widget(form.nrOfDice.children[0])}}
-        <label>Two dice</label>
-        {{form_widget(form.nrOfDice.children[1], { 'attr': {'checked': 'checked'}})}}<br>
-        <label>Text dice</label>
-        {{form_widget(form.diceType.children[0], { 'attr': {'onclick':'enableSides()'}})}}
-        <label>Graphical dice</label>
-        {{form_widget(form.diceType.children[1], { 'attr': {'onclick':'disableSides()', 'checked': 'checked'}})}}<br>
-        <label>Sides</label></br>
-        {{form_widget(form.sides, { 'attr': {'disabled': 'disabled', 'min': 1, 'max': '2000'}})}}<br>
-        <label>Bet</label></br>
-        {{form_widget(form.bet, { 'attr': {'min': 0, 'max': data['maxBet']}})}}
-    {{form_end(form)}}
 {% endblock %}

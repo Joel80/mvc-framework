@@ -38,8 +38,20 @@
         <p>{{data['broke']}}</p>
     {% endif %}
 
-    {{ form(formPlayAgain) }}
-    {{ form(formResetScore) }}
-    {{ form(formResetBitCoins) }}
+    <form method ="post" action="{{ path('app_game21_play_again')}}">
+        <input type = "submit" id="submit" name="doit" value = "Play again">
+    </form>
+
+    <form method ="post" action="{{ path('app_game21_reset_score')}}">
+    <input type = "submit" id="submit" name="doit" value = "Reset score">
+    </form>
+
+    <form method ="post" action="{{ path('app_game21_reset_bitcoins')}}">
+    <input type = "submit" id="submit" name="doit" value = "Reset bitcoins">
+    </form>
 
 {% endblock %}
+
+
+
+   
