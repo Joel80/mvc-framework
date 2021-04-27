@@ -13,26 +13,32 @@ app_game21_play:
 app_game21_setup:
     path: /dice/game21/setup
     controller: App\Controller\Game21Controller::setup
+    methods: POST
 
 app_game21_player_roll:
-    path: /dice/game21/player_roll
+    path: /dice/game21/player-roll
     controller: App\Controller\Game21Controller::playerRoll
+    methods: POST
 
 app_game21_computer_roll:
-    path: /dice/game21/computer_roll
+    path: /dice/game21/computer-roll
     controller: App\Controller\Game21Controller::computerRoll
+    methods: POST
 
 app_game21_play_again:
-    path: /dice/game21/play_again
+    path: /dice/game21/play-again
     controller: App\Controller\Game21Controller::playAgain
+    methods: POST
 
 app_game21_reset_score:
-    path: /dice/game21/reset_score
+    path: /dice/game21/reset-score
     controller: App\Controller\Game21Controller::resetScore
+    methods: POST
 
 app_game21_reset_bitcoins:
-    path: /dice/game21/reset_bitcoins
+    path: /dice/game21/reset-bitcoins
     controller: App\Controller\Game21Controller::resetBitcoins
+    methods: POST
 
 
 app_yatzy_play:
