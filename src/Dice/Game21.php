@@ -9,7 +9,6 @@ use App\Dice\GraphicalDice;
 use App\Dice\DiceHand;
 use App\Dice\GraphicalDiceHand;
 
-
 /**
  * Class Game
  */
@@ -71,7 +70,7 @@ class Game21
         $this->data["playerBitCoin"] = $this->playerBitCoin;
 
         //Store the game object in session
-        $_SESSION["game"] = $this;
+        //$_SESSION["game"] = $this;
 
         //Set gamestate to setup
         $this->gameState = "setup";

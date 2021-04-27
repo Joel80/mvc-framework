@@ -350,10 +350,12 @@ class Yatzy
      */
     public function lockScore(?int $position): void
     {
-        //Get the scorebox from the scoreboard
-        if ($position === null) {
+
+      /*   if ($position === null) {
             return;
-        }
+        } */
+
+        //Get the scorebox from the scoreboard
         $scorebox = $this->scoreboard->getScorebox($position);
 
         //Lock the scorebox
@@ -486,9 +488,9 @@ class Yatzy
      * Restarts game
      * @return void
      */
-    public function newGame(): void
+    /* public function newGame(): void
     {
         //Unset session variable "yatzy"
         unset($_SESSION["yatzy"]);
-    }
+    } */
 }

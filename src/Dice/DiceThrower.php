@@ -1,4 +1,5 @@
 <?php
+
 // src/Dice/ThrowDice.php
 namespace App\Dice;
 
@@ -14,7 +15,7 @@ class DiceThrower
     {
         $this->hand = new DiceHand();
 
-        for ($i = 0; $i < $dice; $i ++) {
+        for ($i = 0; $i < $dice; $i++) {
             $this->hand->addDice(new GraphicalDice());
         }
     }
@@ -38,5 +39,4 @@ class DiceThrower
     {
         return $this->data;
     }
-
 }
