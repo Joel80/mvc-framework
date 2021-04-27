@@ -1,4 +1,5 @@
 <?php
+
 // src/Controller/LuckyController.php
 namespace App\Controller;
 
@@ -20,7 +21,9 @@ class LuckyController extends AbstractController
         $session->set('last', $number);
 
         return $this->render(
-            'lucky/number.html.twig', ['number' => $number, 'lastNumber' => $lastNumber
-            ]);
+            'lucky/number.html.twig',
+            ['number' => $number, 'lastNumber' => $lastNumber
+            ]
+        );
     }
 }

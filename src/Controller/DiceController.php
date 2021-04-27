@@ -1,4 +1,5 @@
 <?php
+
 // src/Controller/DiceController.php
 namespace App\Controller;
 
@@ -23,7 +24,9 @@ class DiceController extends AbstractController
         $data = $diceThrower->roll();
 
         return $this->render(
-            'dice/dice_throw.html.twig', ['data' => $data,
-            ]);
+            'dice/dice_throw.html.twig',
+            ['data' => $data,
+            ]
+        );
     }
 }

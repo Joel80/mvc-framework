@@ -1,4 +1,5 @@
 <?php
+
 // src/Controller/LuckyController.php
 namespace App\Controller;
 
@@ -9,13 +10,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class DefaultController extends AbstractController
 {
     /**
-     * 
+     * Default controller for index page
      */
     public function index(): Response
     {
-        $number = random_int(0, 100);
 
         return $this->render(
-            'index.html.twig');
+            'index.html.twig'
+        );
     }
 }

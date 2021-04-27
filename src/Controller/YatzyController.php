@@ -21,14 +21,13 @@ use App\Dice\Scoreboard as Scoreboard;
 use App\Dice\Scorebox as Scorebox;
 use App\Dice\GraphicalDice as GraphicalDice;
 
-
 /**
  * Controller for the game21 routes.
  */
 class YatzyController extends AbstractController
 {
 
-    public function playGame(Request $request, SessionInterface $session): Response
+    public function playGame(SessionInterface $session): Response
     {
 
         $game = $session->get('yatzy', null);
@@ -57,11 +56,13 @@ class YatzyController extends AbstractController
         $data["gameState"] = $game->getGameState();
 
         return $this->render(
-            'dice/yatzy.html.twig', ['data' => $data, 
-            ]);
+            'dice/yatzy.html.twig',
+            ['data' => $data,
+            ]
+        );
     }
 
-    public function playerRoll(Request $request, SessionInterface $session): Response
+    public function playerRoll(SessionInterface $session): Response
     {
         $game = $session->get('yatzy');
         $game->playerRoll();
@@ -71,8 +72,6 @@ class YatzyController extends AbstractController
 
     public function lockDice(Request $request, SessionInterface $session): Response
     {
-        //$lockedDice = $_POST["lockedDice"] ?? [];
-
         $lockedDice = $request->get("lockedDice") ?? [];
 
         $positions = [];
@@ -106,7 +105,7 @@ class YatzyController extends AbstractController
 
     public function newGame(SessionInterface $session): Response
     {
-        $session->clear('yatzy');
+        $session->remove('yatzy');
 
         /* $game = isset($_SESSION["yatzy"]) ? $_SESSION["yatzy"] : null;
 
