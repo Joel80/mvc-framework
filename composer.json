@@ -1,5 +1,6 @@
 {
-    
+    "name": "jolf20/mvc-framework",
+    "description": "A part of the course dbwebb/mvc, the framework. My solutions",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",
@@ -52,7 +53,9 @@
         "symfony/phpunit-bridge": "^5.2",
         "symfony/stopwatch": "^5.2",
         "symfony/var-dumper": "^5.2",
-        "symfony/web-profiler-bundle": "^5.2"
+        "symfony/web-profiler-bundle": "^5.2",
+        "phpunit/phpunit": "^9",
+        "phpstan/phpstan": "^0.12"
     },
     "config": {
         "optimize-autoloader": true,
