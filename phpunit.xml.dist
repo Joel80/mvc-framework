@@ -16,10 +16,25 @@
     </php>
 
     <coverage processUncoveredFiles="true">
+    <!-- <coverage> -->
+
     <include>
         <!-- <directory suffix=".php">config</directory> -->
         <directory suffix=".php">src</directory>
     </include>
+
+   <!--  <include>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </include> -->
+
+    <!-- <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
+        </whitelist>
+    </filter> -->
+
     <report>
         <clover outputFile="build/coverage.clover"/>
         <html outputDirectory="build/coverage" lowUpperBound="35" highLowerBound="70"/>
@@ -32,11 +47,6 @@
         </testsuite>
     </testsuites>
 
-    <!-- <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">src</directory>
-        </whitelist>
-    </filter> -->
 
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
