@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My books!{% endblock %}
+
+
+
+{% block body %}
+<h1>My books</h1>
+<div class="book-grid">
+    {% for book in books %}
+    <div class = "book-container">
+        <div class = "book-id">
+            {{book.id}}
+        </div>
+        <div class = "book-title">
+            {{book.title}}
+        </div>
+        <div class="book-author">
+            {{book.author}}
+        </div>
+        <div class="book-image">
+            <img class = "book-img" src="{{ asset(book.image) }}" alt="Cover image for {{book.title}} "/> <br>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
