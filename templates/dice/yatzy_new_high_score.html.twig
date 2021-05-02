@@ -1,0 +1,13 @@
+{% block body %}
+<h2>New Highscore!</h2>
+
+<h3>Total score: {{data['totalScore']}}</h3>
+
+<p>Please fill in your name</p>
+
+<form method ="post" action="{{ path('create_yatzy_high_score')}}">
+    <input type="text" name="name">
+    <input type="hidden" name="score" value={{data['totalScore']}} readonly)><br>
+    <input type = "submit" id="submit" name="doit" value = "High score">
+</form>
+{% endblock %}

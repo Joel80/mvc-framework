@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h2>Yatzy High Scores</h2>
+<table class="high-score-table">
+    <tr>
+        <th>Score</th>
+        <th>Name</th>
+    </tr>
+{% for highScore in highScores %}
+    <tr>
+        <td>{{highScore.score}}</td>
+        <td>{{highScore.name}}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
