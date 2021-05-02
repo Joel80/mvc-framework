@@ -28,7 +28,7 @@ class BookController extends AbstractController
         $books = $entityManager
             ->getRepository(Book::class)
             ->findAll();
-        
+        //return $this->json($books);
         return $this->render('book/find_all.html.twig', ['books' => $books]);
     }
 }
