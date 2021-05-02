@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1>{{data['header']}}</h1>
+    <h2>{{data['header']}}</h2>
 
     {% if data['gameState'] == "playerTurn" %}
         {% include 'dice/yatzy_player_turn.html.twig' %}
     {% elseif data['gameState'] == "scoring" %}
         {% include 'dice/yatzy_scoring.html.twig' %}
+    {% elseif data['gameState'] == "newHighScore" %}
+        {% include 'dice/yatzy_new_high_score.html.twig' %}
     {% elseif data['gameState'] == "gameOver" %}
         {% include 'dice/yatzy_game_over.html.twig' %}
     {% endif %}

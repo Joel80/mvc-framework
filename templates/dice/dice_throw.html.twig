@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    <h1>Result of your dice throw</h1>
+    <h2>Result of your dice throw</h2>
 
     <p>
         {% for result in data['roll'] %} {{result}} {% endfor %} = {{data['sum']}}
