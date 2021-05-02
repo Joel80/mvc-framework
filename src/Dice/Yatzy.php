@@ -24,10 +24,13 @@ class Yatzy
      * @var int $handSize the number of dice in the hand
      * @var int $totalScore holds the total score
      * @var int $bonus holds the value of the bonus
+     * @var int nrOfHighScores holds the number of highscores
+     * @var int lowestHighScore holds the lowest highScore
      *
      */
     private YatzyHand $playerHand;
     private Scoreboard $scoreboard;
+    private int $nrOfHighScores;
     private int $rounds = 0;
     private string $gameState = "";
     private array $data = [];
@@ -36,13 +39,14 @@ class Yatzy
     private int $handSize = 0;
     private int $totalScore = 0;
     private int $bonus = 0;
+    private int $lowestHighScore = 0;
 
     /**
      * Constructor
      * @param Yatzyhand $playerHand the players hand
      * @param Scoreboard $scoreboard the scoreboard
      */
-    public function __construct(YatzyHand $playerHand, Scoreboard $scoreboard)
+    public function __construct(YatzyHand $playerHand, Scoreboard $scoreboard,int $nrOfHighScores, $lowestHighScore)
     {
         //Set playerhand
         $this->playerHand = $playerHand;
@@ -65,9 +69,15 @@ class Yatzy
         //Init the lockedDice array - all dice are unlocked
         $this->lockedDice = $this->playerHand->getLockedDice();
 
+        //Init highscores
+        $this->nrOfHighScores = $nrOfHighScores;
+
+        //Set lowestHighScore
+        $this->lowestHighScore = $lowestHighScore;
+
         //Init data with the header
         $this->data = [
-            "header" => "Yatzi"
+            "header" => "Yatzy"
         ];
 
         //Init gameState to playerTurn
@@ -443,6 +453,12 @@ class Yatzy
         //Set game state to gameOver
         $this->gameState = "gameOver";
 
+        //Check if there is a new highscore if so set
+        //gamestate to newHighScore
+        if ($this->totalScore > $this->lowestHighScore || $this->nrOfHighScores < 5) {
+            $this->gameState = "newHighScore";
+        }
+
         //Store the game state in data for rendering
         $this->data["gameState"] = $this->gameState;
     }
@@ -482,6 +498,20 @@ class Yatzy
         }
 
         return $bonus;
+    }
+
+    /**
+     * Sets gamestate to gamOver if param is true
+     * @param bool gameOver 
+     * @return void
+     */
+    public function gameOver(bool $gameOver): void
+    {
+        if ($gameOver) {
+            $this->gameState = "gameOver";
+        }
+       
+        return;
     }
 
     /**
