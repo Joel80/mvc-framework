@@ -16,17 +16,24 @@
         {% endblock %}
     </head>
     <body>
-        <header>
-            <nav>
-                <a href="{{ path('index') }}">Home</a>
-                <a href="{{ path('app_lucky_number') }}">Lucky number</a>
-                <a href="{{ path('app_dice_throw') }}">Throw some dice</a>
-                <a href="{{ path('app_game21_play') }}">Game21</a>
-                <a href="{{ path('app_yatzy_play') }}">Yatzy</a>
-            </nav>
-        </header>
-
-        {% block header %} {% endblock %}
+        {% block header %}
+            <header class="site-header">
+                <div class="site-title">
+                    <h1>Framework - ORM</h1>
+                </div>
+            </header>
+         {% endblock %}
+         <main class = "main">
+         <nav>
+            <a href="{{ path('index') }}">Home</a>
+            <a href="{{ path('app_lucky_number') }}">Lucky number</a>
+            <a href="{{ path('app_dice_throw') }}">Throw some dice</a>
+            <a href="{{ path('app_game21_play') }}">Game21</a>
+            <a href="{{ path('app_yatzy_play') }}">Yatzy</a>
+            <a href="{{ path('find_all_yatzy_high_score') }}">Yatzy High Scores</a>
+            <a href="{{ path('find_all_book') }}">My books</a>
+        </nav>
         {% block body %}{% endblock %}
+    </main>
     </body>
 </html>
