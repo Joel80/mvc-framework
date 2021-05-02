@@ -1,21 +1,139 @@
-body {
+/** BASIC LAYOUT**/
+
+* {
+    box-sizing: border-box;
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oxygen', sans-serif;
+}
+
+html {
+    height: 100%;
     overflow-y: scroll;
-    width: 800px;
-    margin: 4px auto;
-    padding-left: 1em;
-    border-left: 1px solid #ccc;
 }
 
-main {
-    min-height: 20em;
+body {
+    background-color: #ebebeb;
+    height: 100%;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
 }
 
+.site-header {
+    flex: 0 0 auto;
+/*     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/hero.jpg');
+ */ 
+    background-color: #121212;
+    color: #fff;
+    padding: 2em;
+    text-align: center;
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; */
+    height: 25%;
+}
+
+
+.site-title {
+    text-align: center;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    color: white;
+}
+
+.main {
+    flex: 1 0 auto;
+    max-width: 80em;
+    margin: 0.5em auto;
+    padding: 2em;
+}
+
+.site-footer {
+    flex: 0 0 auto;
+    background-color: #121212;
+    color: #fff;
+    padding: 2em;
+    text-align: center;
+}
+
+.site-footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.site-footer a:visited {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+/** NAV **/
+nav {
+    margin: 2em 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    clear: both;
+}
+
+nav a {
+    font-size: 1.2em;
+    padding: 0.3em;
+    margin: 0.2em;
+    background-color: #121212;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 3px 3px 3px 3px #000;
+}
+
+.selected {
+    text-decoration: underline;
+}
+
+
+/** IMAGES **/
+img {
+    max-width: 100%;
+}
+
+
+
+/** TYPOGRAPHY **/
+h1 {
+    font-size: 4rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: sans-serif;
+}
+
+h2,
+h3,
+h4 {
+    margin-bottom: 0.5em;
+}
+
+p {
+    margin-bottom: 0.5em;
+}
+
+/*
 footer {
     border-top: 1px solid #ccc;
     min-height: 4em;
     text-align: center;
 }
-
+ */
 
 /**
  * CSS sprite for a dice with six faces. Using the code
@@ -39,7 +157,7 @@ footer {
 
 .lock-dice input[type=checkbox] {
     margin-left: 8px;
-    margin-right: 14px;
+    margin-right: 16px;
     margin-bottom: 14px;
 
 }
@@ -53,31 +171,52 @@ footer {
 
 .book-container {
     display:grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
     grid-gap: 1em;
     grid-template-areas:
-    "id author title image"
+    "id" 
+    "image"
+    "author" 
+    "title" 
+    "isbn";
+    align-items: center;
 }
 
-.book-id {
+.book-image {
     grid-area: id;
-    grid-column: 1/1;
+    grid-row: 1/1;
+    border: 1px #000;
+
 }
 
 .book-title {
     grid-area: title;
-    grid-column: 2/2;
+    grid-row: 2/2;
+    border: 1px #000;
+
+
 }
 
 .book-author {
     grid-area: author;
-    grid-column: 3/3;
+    grid-row: 3/3;
+    border: 1px #000;
+
+
 }
 
-.book-image {
+.book-id {
     grid-area: image;
-    grid-column: 4/4;
-    align-self: center;
+    grid-row: 4/4;
+    border: 1px #000;
+
+
+}
+
+.book-isbn {
+    grid-area: isbn;
+    grid-row: 5/5;
+    border: 1px #000;
 }
 
 
@@ -86,5 +225,49 @@ footer {
 */
 
 .book-img {
-    max-width: 50%;
+    max-width: 25%;
+    border: 0.5em #fff solid;
+    box-shadow: #000 3px 3px 3px 3px;
+}
+
+/**
+* Forms
+*/
+
+input[type="submit"] {
+    background-color: #121212;
+    color: #fff;
+    text-decoration: none;
+    margin: 1em 0 1em 0;
+    padding: 0.5em;
+    text-align: center;
+}
+
+/**
+* Tables
+*/
+
+.high-score-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.high-score-table th {
+    background-color: #121212;
+    color: #fff;
+    padding: 0.5em;
+}
+
+.high-score-table td {
+    padding: 0.5em;
+    text-align: center;
+}
+
+
+.high-score-table tr {
+    color: #000;
+}
+
+.high-score-table tr:nth-child(odd) {
+    background-color: #aaa;
 }
