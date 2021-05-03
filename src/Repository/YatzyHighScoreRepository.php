@@ -11,6 +11,9 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method YatzyHighScore|null findOneBy(array $criteria, array $orderBy = null)
  * @method YatzyHighScore[]    findAll()
  * @method YatzyHighScore[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method YatzyHighScore[] findAllOrderedByScore()
+ * @method array findAllScores()
+ *
  */
 class YatzyHighScoreRepository extends ServiceEntityRepository
 {
@@ -23,7 +26,7 @@ class YatzyHighScoreRepository extends ServiceEntityRepository
      * Find all ordered by score
      * @return YatzyHighScore[] returns an
      * array with YatzyHighScores
-     * 
+     *
      */
     public function findAllOrderedByScore(): array
     {
@@ -42,7 +45,7 @@ class YatzyHighScoreRepository extends ServiceEntityRepository
      * Find all scores in DESC order
      * @return array returns an
      * array with scores
-     * 
+     *
      */
     public function findAllScores(): array
     {
