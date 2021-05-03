@@ -21,13 +21,13 @@ use App\Dice\Scoreboard as Scoreboard;
 use App\Dice\Scorebox as Scorebox;
 use App\Dice\GraphicalDice as GraphicalDice;
 use App\Entity\YatzyHighScore;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Controller for the game21 routes.
  */
 class YatzyController extends AbstractController
 {
-
     public function playGame(SessionInterface $session): Response
     {
 
@@ -53,14 +53,15 @@ class YatzyController extends AbstractController
             $highScores = $entityManager
                 ->getRepository(YatzyHighScore::class)
                 ->findAllScores();
-            
+
+
             $nrOfHighScores = count($highScores);
 
             $lowestHighScore = 0;
             if ($nrOfHighScores > 0) {
-                $lowestHighScore = $highScores[$nrOfHighScores-1]['score'];
+                $lowestHighScore = $highScores[$nrOfHighScores - 1]['score'];
             }
-            
+
 
             $game = new Yatzy($playerHand, $scoreboard, $nrOfHighScores, $lowestHighScore);
 
@@ -81,6 +82,7 @@ class YatzyController extends AbstractController
     public function playerRoll(SessionInterface $session): Response
     {
         $game = $session->get('yatzy');
+
         $game->playerRoll();
 
         return $this->redirectToRoute('app_yatzy_play', [], 301);

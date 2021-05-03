@@ -8,13 +8,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
-
 use App\Entity\YatzyHighScore;
+use App\Repository\YatzyHighScoreRepository;
 
 class YatzyHighScoreController extends AbstractController
 {
     /**
-     * @Route("/yatzy/high/score", name="yatzy_high_score")
+     * @Route("/yatzy/high/score", name="app_yatzy_high_score")
      */
     public function index(): Response
     {
@@ -24,14 +24,14 @@ class YatzyHighScoreController extends AbstractController
     }
 
     /**
-     * @Route("/yatzy/high/score/create", name="create_yatzy_high_score", methods={"POST"})
+     * @Route("/yatzy/high/score/create", name="app_create_yatzy_high_score", methods={"POST"})
      */
     public function createYatzyHighScore(SessionInterface $session, EntityManagerInterface $entityManager, Request $request): Response
     {
         $game = $session->get("yatzy", null);
 
-        if($game) {
-            $highScore = new YatzyHighScore;
+        if ($game) {
+            $highScore = new YatzyHighScore();
 
             $score = $request->get("score");
 
@@ -50,8 +50,7 @@ class YatzyHighScoreController extends AbstractController
             ->findAllOrderedByScore();
 
             if (count($highScores) > 5) {
-                
-                $lowestScore = $highScores[count($highScores)-1];
+                $lowestScore = $highScores[count($highScores) - 1];
 
                 $entityManager->remove($lowestScore);
 
@@ -64,9 +63,9 @@ class YatzyHighScoreController extends AbstractController
     }
 
     /**
-    * @Route("/yatzy/high/score/all", name="find_all_yatzy_high_score")
+    * @Route("/yatzy/high/score/all", name="app_find_all_yatzy_high_score")
     */
-    public function findAllYatzyHighScoreOrderedByScore(EntityManagerInterface $entityManager): Response 
+    public function findAllYatzyHighScoreOrderedByScore(EntityManagerInterface $entityManager): Response
     {
         $highScores = $entityManager
             ->getRepository(YatzyHighScore::class)

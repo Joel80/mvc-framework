@@ -11,7 +11,7 @@ use App\Entity\Book;
 class BookController extends AbstractController
 {
     /**
-     * @Route("/book", name="book")
+     * @Route("/book", name="app_book")
      */
     public function index(): Response
     {
@@ -21,7 +21,7 @@ class BookController extends AbstractController
     }
 
     /**
-     * @Route("/book/all", name="find_all_book")
+     * @Route("/book/all", name="app_find_all_book")
      */
     public function findAllBook(EntityManagerInterface $entityManager): Response
     {
