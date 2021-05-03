@@ -46,7 +46,7 @@ class Yatzy
      * @param Yatzyhand $playerHand the players hand
      * @param Scoreboard $scoreboard the scoreboard
      */
-    public function __construct(YatzyHand $playerHand, Scoreboard $scoreboard,int $nrOfHighScores, $lowestHighScore)
+    public function __construct(YatzyHand $playerHand, Scoreboard $scoreboard, int $nrOfHighScores, $lowestHighScore)
     {
         //Set playerhand
         $this->playerHand = $playerHand;
@@ -502,7 +502,7 @@ class Yatzy
 
     /**
      * Sets gamestate to gamOver if param is true
-     * @param bool gameOver 
+     * @param bool $gameOver
      * @return void
      */
     public function gameOver(bool $gameOver): void
@@ -510,7 +510,7 @@ class Yatzy
         if ($gameOver) {
             $this->gameState = "gameOver";
         }
-       
+
         return;
     }
 
