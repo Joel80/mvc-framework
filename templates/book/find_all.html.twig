@@ -6,11 +6,12 @@
 <h2>My books</h2>
 <div class="book-grid">
     {% for book in books %}
-    <div class = "book-container">
-        <div class = "book-id">
-            <p>Id:</p>
-            {{book.id}}
+        <div class="book-image-container">
+            <div class="book-image">
+                <img class = "book-img" src="{{ asset(book.image) }}" alt="Cover image for {{book.title}} "/> <br>
+            </div>
         </div>
+        <div class = "book-info-container">
         <div class ="book-title">
             <p>Title:</p>
             {{book.title}}
@@ -18,9 +19,6 @@
         <div class="book-author">
             <p>Author:</p>
             {{book.author}}
-        </div>
-        <div class="book-image">
-            <img class = "book-img" src="{{ asset(book.image) }}" alt="Cover image for {{book.title}} "/> <br>
         </div>
         <div class="book-isbn">
             <p>ISBN:</p>
