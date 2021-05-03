@@ -60,7 +60,29 @@ app_yatzy_lock_score:
 app_yatzy_new_game:
     path: /dice/yatzy/new-game
     controller: App\Controller\YatzyController::newGame
-    
+
+app_book:
+    path: /book
+    controller: App\Controller\BookController::index
+
+app_find_all_book:
+    path: /book/all
+    controller: App\Controller\BookController::findAllBook
+
+app_yatzy_high_score:
+    path: /yatzy/high/score
+    controller: App\Controller\YatzyHighScoreController::index
+
+app_create_yatzy_high_score:
+    path: /yatzy/high/score/create
+    controller: App\Controller\YatzyHighScoreController::createYatzyHighScore
+    methods: POST
+
+app_find_all_yatzy_high_score:
+    path: /yatzy/high/score/all
+    controller: App\Controller\YatzyHighScoreController::findAllYatzyHighScoreOrderedByScore
+
+
 
 # the "app_lucky_number" route name is not important yet
 #app_lucky_number:
