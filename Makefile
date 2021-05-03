@@ -81,6 +81,7 @@ phpstan: prepare
 	- [ ! -f .phpstan.neon ] || $(PHPSTAN) analyse -c .phpstan.neon | tee build/phpstan
 
 phpunit: prepare
+	php bin/console cache:clear --env=test
 	[ ! -d "tests" ] || XDEBUG_MODE=coverage $(PHPUNIT) --configuration phpunit.xml.dist $(options) | tee build/phpunit
 
 cs: phpcs
