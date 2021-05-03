@@ -34,7 +34,11 @@ class YatzyGetGameStateTest extends TestCase
         $scoreboard->addScorebox(new Scorebox("Fives"));
         $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
 
         $data = $yatzy->getGameState();

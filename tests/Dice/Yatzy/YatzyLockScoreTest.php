@@ -35,7 +35,11 @@ class YatzyLockScoreTest extends TestCase
         $scoreboard->addScorebox(new Scorebox("Fives"));
         $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $yatzy->lockScore(0);
 
@@ -70,7 +74,11 @@ class YatzyLockScoreTest extends TestCase
         $scoreboard->addScorebox(new Scorebox("Fives"));
         $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         for ($i = 0; $i < 6; $i++) {
             $yatzy->playerRoll();

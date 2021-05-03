@@ -34,7 +34,11 @@ class YatzyCreateObjectTest extends TestCase
             $scoreboard->addScorebox(new Scorebox("Fives"));
             $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $this->assertInstanceOf("\App\Dice\Yatzy", $yatzy);
     }
@@ -59,7 +63,11 @@ class YatzyCreateObjectTest extends TestCase
             $scoreboard->addScorebox(new Scorebox("Fives"));
             $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
@@ -86,7 +94,11 @@ class YatzyCreateObjectTest extends TestCase
             $scoreboard->addScorebox(new Scorebox("Fives"));
             $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
@@ -113,7 +125,11 @@ class YatzyCreateObjectTest extends TestCase
             $scoreboard->addScorebox(new Scorebox("Fives"));
             $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
@@ -140,7 +156,11 @@ class YatzyCreateObjectTest extends TestCase
             $scoreboard->addScorebox(new Scorebox("Fives"));
             $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
@@ -160,14 +180,18 @@ class YatzyCreateObjectTest extends TestCase
 
         $scoreboard = new Scoreboard();
 
-            $scoreboard->addScorebox(new Scorebox("Ones"));
-            $scoreboard->addScorebox(new Scorebox("Twos"));
-            $scoreboard->addScorebox(new Scorebox("Threes"));
-            $scoreboard->addScorebox(new Scorebox("Fours"));
-            $scoreboard->addScorebox(new Scorebox("Fives"));
-            $scoreboard->addScorebox(new Scorebox("Sixes"));
+        $scoreboard->addScorebox(new Scorebox("Ones"));
+        $scoreboard->addScorebox(new Scorebox("Twos"));
+        $scoreboard->addScorebox(new Scorebox("Threes"));
+        $scoreboard->addScorebox(new Scorebox("Fours"));
+        $scoreboard->addScorebox(new Scorebox("Fives"));
+        $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
@@ -187,14 +211,18 @@ class YatzyCreateObjectTest extends TestCase
 
         $scoreboard = new Scoreboard();
 
-            $scoreboard->addScorebox(new Scorebox("Ones"));
-            $scoreboard->addScorebox(new Scorebox("Twos"));
-            $scoreboard->addScorebox(new Scorebox("Threes"));
-            $scoreboard->addScorebox(new Scorebox("Fours"));
-            $scoreboard->addScorebox(new Scorebox("Fives"));
-            $scoreboard->addScorebox(new Scorebox("Sixes"));
+        $scoreboard->addScorebox(new Scorebox("Ones"));
+        $scoreboard->addScorebox(new Scorebox("Twos"));
+        $scoreboard->addScorebox(new Scorebox("Threes"));
+        $scoreboard->addScorebox(new Scorebox("Fours"));
+        $scoreboard->addScorebox(new Scorebox("Fives"));
+        $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
@@ -214,14 +242,18 @@ class YatzyCreateObjectTest extends TestCase
 
         $scoreboard = new Scoreboard();
 
-            $scoreboard->addScorebox(new Scorebox("Ones"));
-            $scoreboard->addScorebox(new Scorebox("Twos"));
-            $scoreboard->addScorebox(new Scorebox("Threes"));
-            $scoreboard->addScorebox(new Scorebox("Fours"));
-            $scoreboard->addScorebox(new Scorebox("Fives"));
-            $scoreboard->addScorebox(new Scorebox("Sixes"));
+        $scoreboard->addScorebox(new Scorebox("Ones"));
+        $scoreboard->addScorebox(new Scorebox("Twos"));
+        $scoreboard->addScorebox(new Scorebox("Threes"));
+        $scoreboard->addScorebox(new Scorebox("Fours"));
+        $scoreboard->addScorebox(new Scorebox("Fives"));
+        $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
@@ -241,14 +273,18 @@ class YatzyCreateObjectTest extends TestCase
 
         $scoreboard = new Scoreboard();
 
-            $scoreboard->addScorebox(new Scorebox("Ones"));
-            $scoreboard->addScorebox(new Scorebox("Twos"));
-            $scoreboard->addScorebox(new Scorebox("Threes"));
-            $scoreboard->addScorebox(new Scorebox("Fours"));
-            $scoreboard->addScorebox(new Scorebox("Fives"));
-            $scoreboard->addScorebox(new Scorebox("Sixes"));
+        $scoreboard->addScorebox(new Scorebox("Ones"));
+        $scoreboard->addScorebox(new Scorebox("Twos"));
+        $scoreboard->addScorebox(new Scorebox("Threes"));
+        $scoreboard->addScorebox(new Scorebox("Fours"));
+        $scoreboard->addScorebox(new Scorebox("Fives"));
+        $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
@@ -268,14 +304,18 @@ class YatzyCreateObjectTest extends TestCase
 
         $scoreboard = new Scoreboard();
 
-            $scoreboard->addScorebox(new Scorebox("Ones"));
-            $scoreboard->addScorebox(new Scorebox("Twos"));
-            $scoreboard->addScorebox(new Scorebox("Threes"));
-            $scoreboard->addScorebox(new Scorebox("Fours"));
-            $scoreboard->addScorebox(new Scorebox("Fives"));
-            $scoreboard->addScorebox(new Scorebox("Sixes"));
+        $scoreboard->addScorebox(new Scorebox("Ones"));
+        $scoreboard->addScorebox(new Scorebox("Twos"));
+        $scoreboard->addScorebox(new Scorebox("Threes"));
+        $scoreboard->addScorebox(new Scorebox("Fours"));
+        $scoreboard->addScorebox(new Scorebox("Fives"));
+        $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-        $yatzy = new Yatzy($hand, $scoreboard);
+        $nrOfHighScores = 1;
+
+        $lowestScore = 1;
+
+        $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
 
         $data = $yatzy->getData();
 
