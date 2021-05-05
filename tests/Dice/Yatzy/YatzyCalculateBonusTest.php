@@ -36,7 +36,7 @@ class YatzyCalculateBonusTest extends TestCase
             $scoreboard->addScorebox(new Scorebox("Sixes"));
 
         $nrOfHighScores = 1;
-        
+
         $lowestScore = 1;
 
         $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
@@ -77,13 +77,12 @@ class YatzyCalculateBonusTest extends TestCase
         $scoreboard->addScorebox(new Scorebox("Fives"));
         $scoreboard->addScorebox(new Scorebox("Sixes"));
 
-    
         $nrOfHighScores = 1;
-    
+
         $lowestScore = 1;
 
         $yatzy = new Yatzy($hand, $scoreboard, $nrOfHighScores, $lowestScore);
-    
+
 
         for ($i = 0; $i < 6; $i++) {
             $yatzy->playerRoll();
