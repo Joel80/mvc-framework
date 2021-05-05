@@ -23,8 +23,6 @@ body {
 
 .site-header {
     flex: 0 0 auto;
-/*     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../img/hero.jpg');
- */ 
     background-color: #121212;
     color: #fff;
     padding: 2em;
@@ -185,7 +183,7 @@ footer {
     grid-gap: 1em;
     grid-template-areas:
     "author"
-    "title" 
+    "title"
     "isbn";
     /* align-items: center; */
 }
