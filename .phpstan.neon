@@ -1,3 +1,5 @@
+includes:
+    - vendor/phpstan/phpstan-doctrine/extension.neon
 parameters:
     level: 5
     paths:
@@ -6,3 +8,6 @@ parameters:
         #- test
     bootstrapFiles:
         - .phpstan.constants.php
+    doctrine:
+        repositoryClass: App\Repository\YatzyHighScoreRepository
+    
