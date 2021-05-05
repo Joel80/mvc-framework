@@ -22,16 +22,24 @@ use App\Dice\Scorebox as Scorebox;
 use App\Dice\GraphicalDice as GraphicalDice;
 use App\Entity\YatzyHighScore;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\YatzyHighScoreRepository;
 
 /**
  * Controller for the game21 routes.
  */
 class YatzyController extends AbstractController
 {
-    public function playGame(SessionInterface $session): Response
+    private $session;
+
+    public function __construct(SessionInterface $session)
+    {
+        $this->session = $session;
+    }
+
+    public function playGame(/* SessionInterface $session */): Response
     {
 
-        $game = $session->get('yatzy', null);
+        $game = $this->session->get('yatzy', null);
 
         if (!$game) {
             $playerHand = new YatzyHand();
@@ -65,8 +73,10 @@ class YatzyController extends AbstractController
 
             $game = new Yatzy($playerHand, $scoreboard, $nrOfHighScores, $lowestHighScore);
 
-            $session->set('yatzy', $game);
+            $this->session->set('yatzy', $game);
         }
+
+        //var_dump($this->session);
 
         $data = $game->getData();
 
@@ -79,16 +89,16 @@ class YatzyController extends AbstractController
         );
     }
 
-    public function playerRoll(SessionInterface $session): Response
+    public function playerRoll(/* SessionInterface $session */): Response
     {
-        $game = $session->get('yatzy');
+        $game = $this->session->get('yatzy');
 
         $game->playerRoll();
 
         return $this->redirectToRoute('app_yatzy_play', [], 301);
     }
 
-    public function lockDice(Request $request, SessionInterface $session): Response
+    public function lockDice(Request $request/* , SessionInterface $session */): Response
     {
         $lockedDice = $request->get("lockedDice") ?? [];
 
@@ -98,7 +108,7 @@ class YatzyController extends AbstractController
             $positions[] = intval($die);
         }
 
-        $game = $session->get('yatzy');
+        $game = $this->session->get('yatzy');
 
 
         $game->lockDice($positions);
@@ -106,7 +116,7 @@ class YatzyController extends AbstractController
         return $this->redirectToRoute('app_yatzy_play', [], 301);
     }
 
-    public function lockScore(Request $request, SessionInterface $session): Response
+    public function lockScore(Request $request/* , SessionInterface $session */): Response
     {
         //$lockedScore = isset($_POST["lockScore"]) ? intval($_POST["lockScore"]) : null;
 
@@ -114,16 +124,16 @@ class YatzyController extends AbstractController
 
         $lockedScore = intval($lockedScore);
 
-        $game = $session->get('yatzy');
+        $game = $this->session->get('yatzy');
 
         $game->lockScore($lockedScore);
 
         return $this->redirectToRoute('app_yatzy_play', [], 301);
     }
 
-    public function newGame(SessionInterface $session): Response
+    public function newGame(/* SessionInterface $session */): Response
     {
-        $session->remove('yatzy');
+        $this->session->remove('yatzy');
 
         /* $game = isset($_SESSION["yatzy"]) ? $_SESSION["yatzy"] : null;
 

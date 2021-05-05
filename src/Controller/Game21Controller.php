@@ -17,17 +17,24 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  */
 class Game21Controller extends AbstractController
 {
+    private $session;
 
+    public function __construct(SessionInterface $session)
+    {
+        $this->session = $session;
+    }
 
-    public function playGame(SessionInterface $session): Response
+    public function playGame(/* SessionInterface $session */): Response
     {
 
-        $game = $session->get('game', null);
+        $game = $this->session->get('game', null);
 
         if (!$game) {
             $game = new Game21();
-            $session->set('game', $game);
+            $this->session->set('game', $game);
         }
+        
+        //var_dump($this->session);
 
         $data = $game->getData();
 
@@ -38,9 +45,9 @@ class Game21Controller extends AbstractController
         return new Response($content);
     }
 
-    public function setup(Request $request, SessionInterface $session): Response
+    public function setup(Request $request/* , SessionInterface $session */): Response
     {
-        $game = $session->get('game', null);
+        $game = $this->session->get('game', null);
 
         $data = [];
 
@@ -68,9 +75,9 @@ class Game21Controller extends AbstractController
         return $this->redirectToRoute('app_game21_play', [], 301);
     }
 
-    public function playerRoll(SessionInterface $session): Response
+    public function playerRoll(/* SessionInterface $session */): Response
     {
-        $game = $session->get('game', null);
+        $game = $this->session->get('game', null);
 
         if ($game) {
             $game->playerRoll();
@@ -79,9 +86,9 @@ class Game21Controller extends AbstractController
         return $this->redirectToRoute('app_game21_play', [], 301);
     }
 
-    public function computerRoll(SessionInterface $session): Response
+    public function computerRoll(/* SessionInterface $session */): Response
     {
-        $game = $session->get('game', null);
+        $game = $this->session->get('game', null);
 
         if ($game) {
             $game->computerRoll();
@@ -91,9 +98,9 @@ class Game21Controller extends AbstractController
     }
 
 
-    public function playAgain(SessionInterface $session): Response
+    public function playAgain(/* SessionInterface $session */): Response
     {
-        $game = $session->get('game', null);
+        $game = $this->session->get('game', null);
 
         if ($game) {
             $game->playAgain();
@@ -103,9 +110,9 @@ class Game21Controller extends AbstractController
         return $this->redirectToRoute('app_game21_play', [], 301);
     }
 
-    public function resetScore(SessionInterface $session): Response
+    public function resetScore(/* SessionInterface $session */): Response
     {
-        $game = $session->get('game', null);
+        $game = $this->session->get('game', null);
 
         if ($game) {
             $game->resetScore();
@@ -115,9 +122,9 @@ class Game21Controller extends AbstractController
         return $this->redirectToRoute('app_game21_play', [], 301);
     }
 
-    public function resetBitcoins(SessionInterface $session): Response
+    public function resetBitcoins(/* SessionInterface $session */): Response
     {
-        $game = $session->get('game', null);
+        $game = $this->session->get('game', null);
 
         if ($game) {
             $game->resetBitCoins();
