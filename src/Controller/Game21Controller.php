@@ -33,7 +33,7 @@ class Game21Controller extends AbstractController
             $game = new Game21();
             $this->session->set('game', $game);
         }
-        
+
         //var_dump($this->session);
 
         $data = $game->getData();
