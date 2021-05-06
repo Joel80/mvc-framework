@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Joel80/mvc-framework.svg?branch=main)](https://travis-ci.com/Joel80/mvc-framework)
+
 # Readme
 ## About
 This is my repo for the course mvc at BTH.
