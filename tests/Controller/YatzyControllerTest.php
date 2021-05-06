@@ -5,6 +5,11 @@ declare(strict_types=1);
 namespace App\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
+use App\src\Dice\Yatzy;
+use App\Dice\YatzyHand as YatzyHand;
+use App\Dice\Scoreboard as Scoreboard;
 
 class YatzyControllerTest extends WebTestCase
 {
