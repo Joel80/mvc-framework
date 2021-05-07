@@ -13,7 +13,7 @@ build:
     tests:
         override:
             -
-                command: "make phpunit --configuration phpunit.xml.dist"
+                command: "make phpunit"
                 coverage:
                     file: "build/coverage.clover"
                     format: "php-clover"
