@@ -57,10 +57,10 @@ class YatzyController extends AbstractController
             $scoreboard->addScorebox(new Scorebox("Sixes"));
 
             $highScores = [];
-            
+
             $schemaManager = $this->getDoctrine()->getConnection()->getSchemaManager();
 
-            if($schemaManager->tablesExist(array('yatzy_high_score'))) {
+            if ($schemaManager->tablesExist(array('yatzy_high_score'))) {
                 $entityManager = $this->getDoctrine()->getManager();
 
                 $highScores = $entityManager
