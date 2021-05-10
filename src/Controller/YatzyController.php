@@ -65,7 +65,8 @@ class YatzyController extends AbstractController
 
                 $highScores = $entityManager
                 ->getRepository(YatzyHighScore::class)
-                ->/** @scrutinizer ignore-call */ findAllScores();;
+                ->/** @scrutinizer ignore-call */ findAllScores();
+                ;
             }
 
             $nrOfHighScores = count($highScores);
