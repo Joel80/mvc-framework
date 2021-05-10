@@ -36,10 +36,12 @@ class YatzyHighScoreController extends AbstractController
             $score = $request->get("score");
 
             $name = $request->get("name");
-
-            $highScore->setScore($score);
-
-            $highScore->setName($name);
+            if ($score) {
+                $highScore->setScore($score);
+            }
+            if ($name) {
+                $highScore->setName($name);
+            }
 
             $entityManager->persist($highScore);
 
@@ -47,7 +49,7 @@ class YatzyHighScoreController extends AbstractController
 
             $highScores = $entityManager
             ->getRepository(YatzyHighScore::class)
-            ->findAllOrderedByScore();
+            ->/** @scrutinizer ignore-call */findAllOrderedByScore();
 
             if (count($highScores) > 5) {
                 $lowestScore = $highScores[count($highScores) - 1];

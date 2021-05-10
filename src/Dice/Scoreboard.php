@@ -163,10 +163,10 @@ class Scoreboard
 
     /**
      * Gets the total score of this scoreboard
-     * @return int the total score of the scoreboard
+     * @return int|null the total score of the scoreboard
      */
 
-    public function getTotalScore(): int
+    public function getTotalScore(): ?int
     {
         return $this->totalScore;
     }

@@ -90,9 +90,9 @@ class DiceHand
 
      /**
      * Returns an int holding the sum of the last roll of the hand
-     * @return int $sum The sum of the last roll
+     * @return int|null $sum The sum of the last roll
      */
-    public function getSum(): int
+    public function getSum(): ?int
     {
         return $this->sum;
     }
@@ -121,9 +121,9 @@ class DiceHand
 
     /**
      * Get nr of dice
-     * @return int the number of dice in this hand
+     * @return int|null the number of dice in this hand
      */
-    public function getNrOfDice(): int
+    public function getNrOfDice(): ?int
     {
         return $this->nrOfDice;
     }

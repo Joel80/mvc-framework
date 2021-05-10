@@ -7,7 +7,6 @@ namespace App\Dice;
 use App\Dice\Dice;
 use App\Dice\GraphicalDice;
 use App\Dice\DiceHand;
-use App\Dice\GraphicalDiceHand;
 
 /**
  * Class Game
@@ -97,11 +96,11 @@ class Game21
      * @param int $nrOfDice the number of dice used
      * @param string $diceType the type of dice
      * @param int $bet the amount bet
-     * @param int $sides the number of sides on the dice
+     * @param int|null $sides the number of sides on the dice
      *
      * @return void
      */
-    public function setup(DiceHand $playerHand, DiceHand $computerHand, int $nrOfDice, string $diceType, int $bet, int $sides = null): void
+    public function setup(DiceHand $playerHand, DiceHand $computerHand, int $nrOfDice, string $diceType, int $bet, ?int $sides = null): void
     {
         //Set member variables
         $this->diceType = $diceType;
