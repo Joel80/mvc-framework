@@ -46,6 +46,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "phpmetrics/phpmetrics": "^2.7",
         "phpstan/phpstan": "^0.12.85",
         "phpstan/phpstan-doctrine": "^0.12.33",
         "phpunit/phpunit": "^9.5",
