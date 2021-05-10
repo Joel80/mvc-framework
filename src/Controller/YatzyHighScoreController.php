@@ -36,9 +36,11 @@ class YatzyHighScoreController extends AbstractController
             $score = $request->get("score");
 
             $name = $request->get("name");
+
             if ($score) {
                 $highScore->setScore($score);
             }
+
             if ($name) {
                 $highScore->setName($name);
             }
